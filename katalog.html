@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brutal Rental - Katalog</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="assets/img/logo-brutal.jpg">
+    <link rel="stylesheet" href="assets/overrides.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body data-page="katalog" id="katalogPage">
+    <header>
+        <div class="container nav">
+           <a href="index.html" class="brand"><img src="assets/img/logo-brutal.jpg" alt="Brutal Rental" class="brand-logo"/> Brutal Rental</a>
+      <button class="burger" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span></button><nav class="nav-links">
+        <a href="index.html" data-page="home">Home</a>
+        <a href="katalog.html" data-page="katalog">Katalog</a>
+        <a href="keunggulan.html" data-page="keunggulan">Keunggulan</a>
+        <a href="testimoni.html" data-page="testimoni">Testimoni</a>
+        <a href="faq.html" data-page="faq">FAQ</a>
+        <a class="btn btn-primary" id="btn-booking" href="booking.html" data-page="booking">Booking</a>
+      </nav>
+    </div>
+    </header>
+
+    <section class="section">
+      <div class="container catalog">
+       <aside class="filter" arial-label="filter katalog">
+        <h4>Filter</h4>
+        <div class="check">
+            <input type="checkbox" id="f-auto" checked>
+            <label for="f-auto">
+                Automatic
+            </label>
+        </div>
+        <div class="check">
+            <input type="checkbox" id="f-manual" checked>
+            <label for="f-manual">
+                Manual
+            </label>
+        </div>
+        <div class="check">
+            <input type="checkbox" id="f-delivery" checked>
+            <label for="f-delivery">
+                Gratis antar-jemput
+            </label>
+        </div>
+        <div class="field" style="margin-top: 12px">
+          <span class="label">Batas harga per hari</span>
+          <input class="input" type="range" id="f-price" min="50" max="300" value="300" oninput="document.getElementById('priceVal').textContent=this.value">
+          <small id="priceVal" class="subtitle">300</small>
+          <small class="subtitle">k</small>
+        </div>
+        <div class="subtitle" id="resetFilter" style="margin-top: 10px; cursor: pointer">Reset Filter</div>
+         </aside>
+         <div>
+            <div class="cards" id="cardGrid" aria-live="polite"></div>
+         </div>
+        </div>
+    </section>
+
+    
+  <footer>
+      <div class="container footer-flex">
+        <div>&copy; <span id="year"></span> Brutal Rental — Semua hak dilindungi</div>
+        <div class="footer-contacts">
+          <a href="https://wa.me/6282141642703" target="_blank" rel="noopener" class="badge-ghost" title="WhatsApp">
+            <img src="assets/img/whatsapp.png" class="icon" alt=""/> 
+            6282141642703
+          </a>
+          <a href="https://www.instagram.com/brutal_rental?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="badge-ghost" title="Instagram">
+            <img src="assets/img/instagram.png" class="icon" alt=""/> 
+            @brutal_rental
+          </a>
+          <a href="mailto:brutalrentalyk@gmail.com" class="badge-ghost" title="Email">
+            <img src="assets/img/gmail.png" class="icon" alt=""/> 
+            brutalrentalyk@gmail.com
+          </a>
+          <a href="https://www.tiktok.com/@brutal.rental.jogja?_t=ZS-8zO3z4QYFrV&_r=1" target="_blank" rel="noopener" class="badge-ghost" title="TikTok">
+            <img src="assets/img/tiktok.png" class="icon" alt=""/> 
+            @brutal.rental.jogja
+          </a>
+        </div>
+      </div>
+    </footer>
+  <a class="wa-float" href="https://wa.me/6282141642703?text=Halo%20Brutal%20Rental%2C%20saya%20ingin%20bertanya%20tentang%20ketersediaan%20unit." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.55.03.25 5.34.27 11.86a11.77 11.77 0 0 0 1.55 5.97L0 24l6.36-1.66a11.9 11.9 0 0 0 5.7 1.48h.05c6.5-.03 11.8-5.34 11.82-11.86a11.77 11.77 0 0 0-3.41-8.48z" fill="#0a0a0a"/><path d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.55.03.25 5.34.27 11.86a11.77 11.77 0 0 0 1.55 5.97L0 24l6.36-1.66a11.9 11.9 0 0 0 5.7 1.48h.05c6.5-.03 11.8-5.34 11.82-11.86a11.77 11.77 0 0 0-3.41-8.48z" fill="#25D366"/></svg> -->
+       <img src="assets/img/wa-footer.png" class="wa-footer" alt="">
+      WhatsApp
+  </a>
+  <script>document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());</script>
+
+
+  <script src="assets/app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brutal Rental - Booking</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="icon" href="assets/img/logo-brutal.jpg">
+    <link rel="stylesheet" href="assets/overrides.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page="booking" id="bookingPage">
+    <header>
+      <div class="container nav">
+        <a href="index.html" class="brand"><img src="assets/img/logo-brutal.jpg" alt="Brutal Rental" class="brand-logo"/> Brutal Rental</a>
+        <button class="burger" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span></button><nav class="nav-links">
+          <a href="index.html" data-page="home">Home</a>
+          <a href="katalog.html" data-page="katalog">Katalog</a>
+          <a href="keunggulan.html" data-page="keunggulan">Keunggulan</a>
+          <a href="testimoni.html" data-page="testimoni">Testimoni</a>
+          <a href="faq.html" data-page="faq">FAQ</a>
+          <a class="btn btn-primary" id="btn-booking" href="booking.html" data-page="booking">Booking</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container booking-wrap">
+        <!-- Kolom kiri: form -->
+        <div class="block">
+          <h2 style="margin: 0 0 8px" id="bkName">Booking</h2>
+          <div class="subtitle" id="bkPrice">Rp — / hari</div>
+          <div id="bkFacility" class="facility" style="margin-top:8px">
+            <span class="pill">Termasuk 2 helm</span>
+            <span class="pill">Termasuk jas hujan</span>
+          </div>
+
+          <div class="badges" style="margin: 16px 0 10px">
+            <button class="btn btn-outline" id="qToday">Hari ini</button>
+            <button class="btn btn-outline" id="qTomorrow">Besok</button>
+            <button class="btn btn-outline" id="qWeekend">Akhir Pekan</button>
+            <button class="btn btn-outline" id="q3d">3 Hari</button>
+            <button class="btn btn-outline" id="q7d">1 Minggu</button>
+          </div>
+
+          <div class="row" style="margin: 10px 0 8px">
+            <label class="field">
+              <span class="label">Tanggal Ambil</span>
+              <input class="input" id="dateStartDisplay" readonly />
+            </label>
+            <label class="field">
+              <span class="label">Jam Ambil</span>
+              <input
+                class="input"
+                id="timeStart"
+                type="time"
+                min="07:00"
+                max="21:00"
+                step="900"
+                value="08:00"
+              />
+            </label>
+          </div>
+          <div class="row">
+            <label class="field">
+              <span class="label">Tanggal Kembali</span>
+              <input class="input" id="dateEndDisplay" readonly />
+            </label>
+            <label class="field">
+              <span class="label">Jam Kembali</span>
+              <input
+                class="input"
+                id="timeEnd"
+                type="time"
+                min="07:00"
+                max="21:00"
+                step="900"
+                value="20:00"
+              />
+            </label>
+          </div>
+
+          <div style="margin: 12px 0">
+            <button class="btn btn-primary" id="openCalendar">Pilih Tanggal</button>
+          </div>
+
+          <form id="bkForm" style="margin-top: 12px">
+            <div class="row">
+              <label class="field"
+                ><span class="label">Nama</span
+                ><input class="input" required placeholder="Nama lengkap"
+              /></label>
+              <label class="field"
+                ><span class="label">No. WhatsApp</span
+                ><input class="input" type="tel" required placeholder="08xxxx"
+              /></label>
+            </div>
+            <div class="row">
+              <label class="field"
+                ><span class="label">Lokasi Ambil</span
+                ><input class="input" placeholder="Alamat / titik temu"
+              /></label>
+              <label class="field">
+                <span class="label">Antar ke alamat?</span>
+                <span class="check-inline">
+                  <input type="checkbox" id="optDelivery" />
+                  <span>Centang jika ingin diantar</span>
+                </span>
+              </label>
+            </div>
+            <button class="btn btn-primary" style="margin-top: 12px">
+              Kirim Pesanan
+            </button>
+          </form>
+        </div>
+
+        <!-- Kolom kanan: ringkasan -->
+        <div class="block">
+          <h3 style="margin: 0 0 10px">Ringkasan</h3>
+          <div class="sum">
+            <div>Durasi</div>
+            <div id="sumDays">—</div>
+            <div>Harga Dasar</div>
+            <div id="sumBase">—</div>
+            <div>Diskon</div>
+            <div id="sumDisc">—</div>
+            <div>Biaya Antar</div>
+            <div id="sumDeliv">—</div>
+            <div>Total</div>
+            <div id="sumTotal" style="font-size: 1.1em">—</div>
+          </div>
+          <p class="subtitle" style="margin-top: 12px">
+            <s>Diskon otomatis untuk sewa ≥ 3 hari (5%) & ≥ 7 hari (15%).</s>
+            Dinonaktifkan sementara.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dialog Kalender -->
+    <dialog id="drDialog">
+      <div class="dr-head">
+        <button class="btn btn-outline" id="prevMonth">‹</button>
+        <strong>Pilih Rentang Tanggal</strong>
+        <button class="btn btn-outline" id="nextMonth">›</button>
+      </div>
+      <div class="dr-body">
+        <div class="cal" id="calBody"></div>
+      </div>
+      <div class="dr-actions">
+        <button class="btn btn-outline" id="calClear">Bersihkan</button>
+        <button class="btn btn-primary" id="calApply">Terapkan</button>
+      </div>
+    </dialog>
+
+    
+  <footer>
+      <div class="container footer-flex">
+        <div>&copy; <span id="year"></span> Brutal Rental — Semua hak dilindungi</div>
+        <div class="footer-contacts">
+          <a href="https://wa.me/6282141642703" target="_blank" rel="noopener" class="badge-ghost" title="WhatsApp">
+            <img src="assets/img/whatsapp.png" class="icon" alt=""/> 
+            6282141642703
+          </a>
+          <a href="https://www.instagram.com/brutal_rental?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="badge-ghost" title="Instagram">
+            <img src="assets/img/instagram.png" class="icon" alt=""/> 
+            @brutal_rental
+          </a>
+          <a href="mailto:brutalrentalyk@gmail.com" class="badge-ghost" title="Email">
+            <img src="assets/img/gmail.png" class="icon" alt=""/> 
+            brutalrentalyk@gmail.com
+          </a>
+          <a href="https://www.tiktok.com/@brutal.rental.jogja?_t=ZS-8zO3z4QYFrV&_r=1" target="_blank" rel="noopener" class="badge-ghost" title="TikTok">
+            <img src="assets/img/tiktok.png" class="icon" alt=""/> 
+            @brutal.rental.jogja
+          </a>
+        </div>
+      </div>
+    </footer>
+  <a class="wa-float" href="https://wa.me/6282141642703?text=Halo%20Brutal%20Rental%2C%20saya%20ingin%20bertanya%20tentang%20ketersediaan%20unit." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.55.03.25 5.34.27 11.86a11.77 11.77 0 0 0 1.55 5.97L0 24l6.36-1.66a11.9 11.9 0 0 0 5.7 1.48h.05c6.5-.03 11.8-5.34 11.82-11.86a11.77 11.77 0 0 0-3.41-8.48z" fill="#0a0a0a"/><path d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.55.03.25 5.34.27 11.86a11.77 11.77 0 0 0 1.55 5.97L0 24l6.36-1.66a11.9 11.9 0 0 0 5.7 1.48h.05c6.5-.03 11.8-5.34 11.82-11.86a11.77 11.77 0 0 0-3.41-8.48z" fill="#25D366"/></svg> -->
+       <img src="assets/img/wa-footer.png" class="wa-footer" alt="">
+      WhatsApp
+    </a>
+  <script>document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());</script>
+
+
+    <script src="assets/app.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+

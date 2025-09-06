@@ -1,0 +1,65 @@
+/* Catalog and booking layout refinements */
+
+/* Buttons: center text, uniform sizing */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Card media: ensure uniform crop */
+.card-media { overflow: hidden; }
+
+/* Card body: keep price row at bottom for consistent height */
+.card-body { display: flex; flex-direction: column; gap: 8px; }
+.price { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
+.actions { display: flex; gap: 10px; align-items: center; }
+.btn-book { min-width: 92px; }
+
+/* Safe icons for rating and spec separators */
+.card-title .subtitle::before { content: '\2605 '; color: var(--brand-2); }
+.specs span + span::before { content: '\2022'; margin: 0 8px; opacity: .6; }
+.metrics .badge-ghost:first-child::after { content: '\2605 5.0/5.0'; font-size: 14px; }
+
+/* Compact sizing specifically inside catalog cards */
+.cards .card-title strong { font-size: 16px; line-height: 1.25; }
+.cards .card-title .subtitle { font-size: 13px; }
+.cards .specs { font-size: 12.5px; }
+.cards .price { flex-wrap: wrap; row-gap: 8px; }
+.cards .price-val strong { font-size: 16px; }
+.cards .price-val small { font-size: 12px; color: var(--muted); }
+.cards .btn { height: 36px; padding: 0 12px; font-size: 13px; border-radius: 10px; }
+.cards .btn-primary { background: #25d366 !important; border: none; color: #0a0a0a; box-shadow: none; font-weight: 700; }
+.cards .btn-outline { border-color: rgba(255,255,255,.18); }
+.cards .actions { flex-shrink: 0; }
+
+/* Booking: inline checkbox with text */
+.check-inline { display: inline-flex; align-items: center; gap: 8px; }
+.check-inline input[type="checkbox"] { width: 18px; height: 18px; }
+.check-inline span { color: var(--muted); }
+
+/* Facility badges on booking */
+.facility { display:flex; gap:8px; flex-wrap:wrap }
+.facility .pill { padding:6px 10px; border-radius:999px; border:1px dashed rgba(255,255,255,.18); color:var(--muted); font-size:12.5px }
+
+/* Burger menu (mobile nav) */
+.burger { display:none; width:40px; height:40px; border-radius:10px; border:1px solid rgba(255,255,255,.18); background:transparent; align-items:center; justify-content:center }
+.burger span{ display:block; width:20px; height:2px; background:#fff; border-radius:2px; position:relative }
+.burger span::before, .burger span::after{ content:""; position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px }
+.burger span::before{ top:-6px } .burger span::after{ top:6px }
+
+@media (max-width: 768px){
+  .burger{ display:inline-flex }
+  .nav-links{ display:none }
+  body.nav-open .nav-links{
+    display:flex !important;
+    position:fixed; z-index:2000; inset:60px 12px auto 12px;
+    flex-direction:column; gap:10px; padding:12px; border-radius:12px;
+    background: var(--surface); border:1px solid rgba(255,255,255,.08);
+    box-shadow: var(--shadow-lg);
+  }
+  body.nav-open{ overflow:hidden }
+  body.nav-open::before{ content:""; position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:900 }
+}
