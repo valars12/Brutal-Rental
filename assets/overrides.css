@@ -63,3 +63,7 @@
   body.nav-open{ overflow:hidden }
   body.nav-open::before{ content:""; position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:900 }
 }
+
+/* Footer rules per halaman */
+body:not([data-page="home"]) .footer-contacts{ display:none }
+body[data-page="home"] .footer-flex{ justify-content:center; text-align:center }

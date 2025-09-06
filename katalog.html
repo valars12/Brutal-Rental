@@ -50,9 +50,8 @@
         </div>
         <div class="field" style="margin-top: 12px">
           <span class="label">Batas harga per hari</span>
-          <input class="input" type="range" id="f-price" min="50" max="300" value="300" oninput="document.getElementById('priceVal').textContent=this.value">
-          <small id="priceVal" class="subtitle">300</small>
-          <small class="subtitle">k</small>
+          <input class="input" type="range" id="f-price" min="50" max="2000" value="2000" oninput="document.getElementById('priceVal').textContent='Rp '+(this.value*1000).toLocaleString('id-ID')">
+          <small id="priceVal" class="subtitle">Rp 2.000.000</small>
         </div>
         <div class="subtitle" id="resetFilter" style="margin-top: 10px; cursor: pointer">Reset Filter</div>
          </aside>
@@ -101,4 +100,6 @@
 
 </body>
 </html>
+
+
 

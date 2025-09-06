@@ -332,3 +332,5 @@ function initTestimoni(){
   if(!slides) return;
   let idx = 0; setInterval(()=>{ idx = (idx+1)%qsa('.slide', slides).length; slides.style.transform = `translateX(-${idx*100}%)`; }, 3500);
 }
+
+
