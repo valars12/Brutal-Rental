@@ -2,10 +2,10 @@
 const bikes = [
   // Motor
   {id:1, type:'motor', name:'Honda Scoopy Prestige White', price:80, gear:'Automatic', cc:'125cc', fuel:'Irit', img:'assets/img/scoopy_white.png', rating:4.9, delivery:true},
-  {id:2, type:'motor', name:'Honda Beat Deluxe', price:60, gear:'Automatic', cc:'110cc', fuel:'Irit', img:'assets/img/beat_deluxe.jpg', rating:4.8, delivery:false},
+  {id:2, type:'motor', name:'Honda Beat Deluxe', price:60, gear:'Automatic', cc:'110cc', fuel:'Irit', img:'assets/img/beat_deluxe.jpg', rating:4.8, delivery:true},
   {id:3, type:'motor', name:'Vespa Matic LX', price:160, gear:'Automatic', cc:'125cc', fuel:'Irit', img:'assets/img/Vespa-matic.jpg', rating:4.7, delivery:true},
-  {id:4, type:'motor', name:'Yamaha Fazzio', price:60, gear:'Automatic', cc:'160cc', fuel:'Irit', img:'assets/img/yamaha-fazzio.jpg', rating:4.6, delivery:false},
-  {id:5, type:'motor', name:'Yamaha Fazzio Red', price:60, gear:'Automatic', cc:'160cc', fuel:'Irit', img:'assets/img/yamaha-fazzio-red.png', rating:4.5, delivery:false},
+  {id:4, type:'motor', name:'Yamaha Fazzio', price:60, gear:'Automatic', cc:'160cc', fuel:'Irit', img:'assets/img/yamaha-fazzio.jpg', rating:4.6, delivery:true},
+  {id:5, type:'motor', name:'Yamaha Fazzio Red', price:60, gear:'Automatic', cc:'160cc', fuel:'Irit', img:'assets/img/yamaha-fazzio-red.png', rating:4.5, delivery:true},
   // Mobil
   {id:6, type:'mobil', name:'Toyota Yaris', price:250, gear:'Manual', cc:'1496cc', fuel:'Irit', img:'assets/img/toyota-yaris.png', rating:4.5, delivery:true},
   {id:7, type:'mobil', name:'Toyota Hiace', price:800, gear:'Manual', cc:'2755cc', fuel:'Irit', img:'assets/img/toyota-hiace.png', rating:4.5, delivery:true},
@@ -95,7 +95,7 @@ function initKatalogPage(){
       <article class="card" data-gear="${b.gear}" data-delivery="${b.delivery}" data-price="${b.price}">
         <div class="card-media">
           <img src="${b.img}" alt="${b.name}" style="width:100%; height:100%; object-fit:cover" />
-          <span class="badge">${b.delivery ? 'Gratis antar' : 'Ambil ditempat'}</span>
+          <span class="badge">${b.delivery ? 'Gratis antar-jemput' : 'Ambil ditempat'}</span>
         </div>
         <div class="card-body">
           <div class="card-title">
@@ -122,7 +122,7 @@ function initKatalogPage(){
       <article class="card" data-gear="${b.gear}" data-delivery="${b.delivery}" data-price="${b.price}">
         <div class="card-media">
           <img src="${b.img}" alt="${b.name}" style="width:100%; height:100%; object-fit:cover" />
-          <span class="badge">${b.delivery ? 'Gratis antar' : 'Ambil ditempat'}</span>
+          <span class="badge">${b.delivery ? 'Gratis antar-jemput' : 'Ambil ditempat'}</span>
         </div>
         <div class="card-body">
           <div class="card-title">
