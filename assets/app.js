@@ -12,7 +12,10 @@ const bikes = [
   {id:8, type:'mobil', name:'VW Tiguan Allspace', price:400, gear:'Automatic', cc:'1395cc', fuel:'Irit', img:'assets/img/mobil-vw.png', rating:4.5, delivery:true},
   {id:9, type:'mobil', name:'Toyota Yaris Blue', price:275, gear:'Automatic', cc:'1496cc', fuel:'Irit', img:'assets/img/toyota-yaris-blue.png', rating:4.5, delivery:true},
   {id:10, type:'mobil', name:'Toyota Avanza', price:275, gear:'Manual', cc:'1329cc', fuel:'Irit', img:'assets/img/toyota-avanza.png', rating:4.5, delivery:true},
-  {id:11, type:'mobil', name:'Toyota Avanza 2', price:275, gear:'Manual', cc:'1329cc', fuel:'Irit', img:'assets/img/toyota-avanza2.jpg', rating:4.5, delivery:true},
+  {id:11, type:'mobil', name:'Toyota Avanza Veloz', price:375, gear:'Manual', cc:'1329cc', fuel:'Irit', img:'assets/img/toyota-avanza2.jpg', rating:4.5, delivery:true},
+  // Penambahan unit baru
+  {id:12, type:'mobil', name:'Mitsubishi Xpander', price:400, gear:'Automatic', cc:'1499cc', fuel:'Irit', img:'assets/img/xpander.jpg', rating:4.5, delivery:true},
+  {id:13, type:'mobil', name:'Honda Brio', price:375, gear:'Automatic', cc:'1199cc', fuel:'Irit', img:'assets/img/honda-brio.jpg', rating:4.5, delivery:true},
 ];
 
 // ====== Helpers ======
