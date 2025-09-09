@@ -288,6 +288,30 @@ header {
   border-color: color-mix(in oklab, var(--brand-2) 65%, white);
   box-shadow: var(--ring);
 }
+/* Native date/time inputs: ensure text and picker icon terlihat di tema gelap */
+input[type="date"].input,
+input[type="time"].input {
+  color-scheme: dark;
+  color: var(--text);
+}
+input[type="date"].input::-webkit-datetime-edit,
+input[type="date"].input::-webkit-datetime-edit-fields-wrapper,
+input[type="date"].input::-webkit-datetime-edit-text,
+input[type="date"].input::-webkit-datetime-edit-year-field,
+input[type="date"].input::-webkit-datetime-edit-month-field,
+input[type="date"].input::-webkit-datetime-edit-day-field,
+input[type="time"].input::-webkit-datetime-edit,
+input[type="time"].input::-webkit-datetime-edit-fields-wrapper,
+input[type="time"].input::-webkit-datetime-edit-text,
+input[type="time"].input::-webkit-datetime-edit-hour-field,
+input[type="time"].input::-webkit-datetime-edit-minute-field{
+  color: var(--text);
+}
+input[type="date"].input::-webkit-calendar-picker-indicator,
+input[type="time"].input::-webkit-calendar-picker-indicator{
+  filter: invert(1) brightness(1.2);
+  opacity: .9;
+}
 .metrics { display:flex; gap:18px; margin-top:26px; flex-wrap:wrap }
 .metrics .badge-ghost:first-child{font-size:0}
 .metrics .badge-ghost:first-child::after{content:'★ 5.0/5.0'; font-size:14px}
@@ -524,15 +548,23 @@ footer {
   cursor: pointer;
   user-select: none;
   border: 1px solid transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  /* Tingkatkan keterbacaan angka tanggal: gunakan tile terang + teks gelap */
+  background: color-mix(in oklab, white 92%, var(--surface));
+  color: #0a0a0a;
+  font-weight: 700;
 }
 .cal-cell:hover {
   border-color: color-mix(in oklab, var(--brand) 55%, white);
 }
 .cal-cell.other {
-  opacity: 0.35;
+  /* Naikkan opasitas agar angka lebih terlihat */
+  opacity: 0.65;
 }
 .cal-cell.disabled {
-  opacity: 0.25;
+  /* Tetap teredam tapi masih terbaca */
+  opacity: 0.5;
   pointer-events: none;
 }
 .cal-cell.today {
@@ -550,7 +582,9 @@ footer {
   font-weight: 800;
 }
 .cal-cell.range {
+  /* Range diwarnai gelap, teks terang agar kontras */
   background: color-mix(in oklab, #ffffff 8%, var(--surface));
+  color: var(--text);
 }
 
 /* Summary table */
